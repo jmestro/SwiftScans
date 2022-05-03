@@ -6,16 +6,52 @@
 //
 
 import SwiftUI
+//import ScanSDKMobile
 
 struct ContentView: View {
+	
     var body: some View {
-        Text("Hello, world!")
-            .padding()
-    }
-}
+		NavigationView {
+			VStack(spacing: 22) {
+				Text("Brother Scanning with SwiftUI")
+					.font(.title2)
+					.fontWeight(.heavy)
+				
+				Spacer()
+				
+				Group {
+					ColorTypeView()
+					
+					ResolutionView()
+					
+					PaperTypeView()
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+					DuplexOptionView()
+
+					DeskewOptionView()
+
+					SkipBlankPageView()
+
+					BrightnessView()
+
+					ContrastView()
+				}
+				
+				Spacer(minLength: 24)
+				
+				NavigationLink {
+					ScannedImageView()
+				} label: {
+					Text("Scan")
+						.font(.title3)
+						.bold()
+				}
+
+			}
+			.padding()
+		}
+		.navigationTitle("Setup")
+		.navigationBarHidden(true)
+        
     }
 }

@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct SwiftScansApp: App {
+	var scannerManager = ScanManager(scannerIP: "10.0.1.7")
+	
     var body: some Scene {
         WindowGroup {
             ContentView()
+				.environmentObject(scannerManager)
         }
     }
 }
